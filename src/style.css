@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-brown: #4E342E;
+  --color-warm-brown: #8D6E63;
+  --color-accent-yellow: #FFD54F;
+  --color-text-main: #202020;
+}
+
+@layer base {
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F5F5;
+    color: #202020;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../cafe.webp');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(32, 32, 32, 0.08);
+  }
+
+  .card-shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(78, 52, 46, 0.15);
+  }
+
+  .btn-primary {
+    @apply bg-dark-brown text-white transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply bg-warm-brown transform scale-105;
+  }
+
+  .btn-accent {
+    @apply bg-accent-yellow text-dark-brown font-semibold;
+  }
+
+  .sticky-call {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    animation: pulse 2s infinite;
+  }
+
+  .menu-tab.active {
+    @apply bg-dark-brown text-white border-dark-brown;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
